@@ -2,7 +2,7 @@
 layout: post
 title: Bilgisayar Sayıları Nasıl Anlar?-1
 comments: true
-tags: [IEEE 754, floating-point]
+tags: [ones' complement, two's complement]
 ---
 Bu yazıda işaretli ve işaretsiz sayıları ve bunları iki tabanına geçirmeyi anlatacağım.
 
