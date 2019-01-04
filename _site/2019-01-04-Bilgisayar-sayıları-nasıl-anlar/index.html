@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 --><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Bilgisayar Sayıları Nasıl Anlar?-1</title>
+
+  <meta name="author" content="Ahmet Elgün" /><link rel="alternate" type="application/rss+xml" title="Ahmet Elgün - Ahmet Elgün'ün kişisel Blog'u" href="/feed.xml" /><!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ3J9XD');</script>
+    <!-- End Google Tag Manager --><!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-128247686-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/bootstrap.min.css" /><link rel="stylesheet" href="/css/bootstrap-social.css" /><link rel="stylesheet" href="/css/main.css" /><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" /><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><!-- Facebook OpenGraph tags --><meta property="og:title" content="Bilgisayar Sayıları Nasıl Anlar?-1" /><meta property="og:description" content="Bu yazıda işaretli ve işaretsiz sayıları ve bunları iki tabanına geçirmeyi anlatacağım. Bilgisayarlarımız her şeyde olduğu gibi sayıları da 2’lik tabanda (binary) işler ve saklar. Bunun için bilginin 2’lik tabanda bir sayıya çevirilmesi, daha sonra bu 2’lik tabandaki sayıdan tekrar bizim anlayacağımız hale döndürülmesi gerekir. Sayıları kabaca 3 gruba ayırabiliriz...."><meta property="og:type" content="website" /><meta property="og:url" content="http://localhost:4000/2019-01-04-Bilgisayar-say%C4%B1lar%C4%B1-nas%C4%B1l-anlar/" />
+  <link rel="canonical" href="http://localhost:4000/2019-01-04-Bilgisayar-say%C4%B1lar%C4%B1-nas%C4%B1l-anlar/" /><meta property="og:image" content="http://localhost:4000/img/avatar-icon.png" /><!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" /><meta name="twitter:title" content="Bilgisayar Sayıları Nasıl Anlar?-1" /><meta name="twitter:description" content="Bu yazıda işaretli ve işaretsiz sayıları ve bunları iki tabanına geçirmeyi anlatacağım. Bilgisayarlarımız her şeyde olduğu gibi sayıları da 2’lik tabanda (binary) işler ve saklar. Bunun için bilginin 2’lik tabanda bir sayıya çevirilmesi, daha sonra bu 2’lik tabandaki sayıdan tekrar bizim anlayacağımız hale döndürülmesi gerekir. Sayıları kabaca 3 gruba ayırabiliriz...."><meta name="twitter:image" content="http://localhost:4000/img/avatar-icon.png" /></head>
+<body><!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ3J9XD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) --><nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="http://localhost:4000">Ahmet Elgün</a></div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right"><li><a href="/aboutme">Hakkımda</a>
+</li></ul>
+    </div><div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div></div>
+</nav>
+<!-- TODO this file has become a mess, refactor it --><header class="header-section"><div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Bilgisayar Sayıları Nasıl Anlar?-1</h1><span class="post-meta">4.01.2019</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</header><div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><article role="main" class="blog-post">
+        <p>Bu yazıda işaretli ve işaretsiz sayıları ve bunları iki tabanına geçirmeyi anlatacağım.</p>
+
+<p>Bilgisayarlarımız her şeyde olduğu gibi sayıları da 2’lik tabanda (binary) işler ve saklar. Bunun için bilginin 2’lik tabanda bir sayıya çevirilmesi, daha sonra bu 2’lik tabandaki sayıdan tekrar bizim anlayacağımız hale döndürülmesi gerekir. Sayıları kabaca 3 gruba ayırabiliriz.</p>
+<ul>
+  <li>İşaretsiz sayılar (Unsigned numbers)</li>
+  <li>İşaretli sayılar (Signed numbers)</li>
+  <li>Kayan noktalı sayılar (Floating-point numbers)</li>
+</ul>
+
+<h2 id="i̇şaretsiz-sayılar">İşaretsiz Sayılar</h2>
+
+<p>İnsanlar genellikle 10’luk sayı sistemini kullanır. 10’luk sayı sistemini 2’lik sayı sistemine çevirmek için lise bilgilerini hatırlamamız yeterli. 10’luk tabandaki (9)<sub>10</sub> sayısını 2’lik tabana çevirelim.</p>
+
+<p><img src="/img/bolum.png" alt="" /></p>
+
+<p>2’lik tabana çevireceğimiz sayıyı bölüm 1 olana kadar 2’ye bölüp ok yönünde soldan sağa yazarak 2’lik tabandaki işaretsiz sayımızı bulduk. (1001)<sub>2</sub></p>
+
+<p>Günümüz bilgisaylarında her bir bayt 8 bit olduğu için kalan bitleri 0 ile doldurmalıyız. <strong>00001001</strong> sayısı 1 baytlık <strong>işaretsiz</strong> bir sayıyı temsil ediyor. 1 bayt ile [0,255] aralığındaki pozitif tam sayıları ifade edebiliriz.</p>
+
+<h2 id="i̇şaretli-sayılar">İşaretli Sayılar</h2>
+
+<p>8 bitlik işaretli bir sayının en solundaki bit en anlamlı biti <strong>(most significant bit)</strong> ifade eder. Bu bit, değiştirmemiz durumunda sayımızı en çok etkileyecek bittir. Bu bit sayımızın işaretini tutar. 0 ve pozitif sayılar için <strong>0</strong>, negatif sayılar için <strong>1</strong> değerini alır. O halde işaretli sayılar ile çalışırken [00001001] değeri 9 sayısını verirken [10001001] değerinden -9 sayısını vermesini bekleriz ama <a href="https://www.rapidtables.com/convert/number/binary-to-decimal.html?x=10001001">şuradan</a> da görebileceğiniz gibi -119 sayısını elde ederiz. Bunun nedeni [00000000] sayısı sıfırı verirken [10000000] sayısının da sıfırı vermesi. 2 farklı baytın aynı sayıyı vermesi kaynak tüketimi açısından iyi olmadığı için tasarımcılar bunun için bir yol geliştirmişler. İlk önce negatif olarak ifade etmek istediğimiz sayının pozitif değerindeki 1’leri 0, 0’ları 1 yapıyoruz. 
+[00001001] =&gt; [11110110] Bunun adı <a href="http://bilgisayarkavramlari.sadievrenseker.com/tag/1s-complement/">one’s complement</a>. Arkasından sayımıza 1 ekliyoruz.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>11110110 
+       1
+_______+
+11110111
+</code></pre>
+</div>
+<p>Buna da <a href="http://bilgisayarkavramlari.sadievrenseker.com/2007/11/28/iki-tumleyeni/">two’s complement</a> diyoruz. Son elde ettiğimiz sayı -9’un ikilik düzendeki karşılığını veriyor. Two’s complement sayesinde 8 bit ile [-128,127] aralığındaki tam sayıları ifade edebiliyoruz.</p>
+
+<p>Burada <strong>11110111</strong> sayısının işaretli mi işaretsiz mi olduğunu nasıl bileceğiz diye sorabilirsiniz. Karşınıza çıkan sorularda genellikle sayının işaretli olup olmadığı söylenir.</p>
+
+<p>Bir sonraki yazıda kayan noktalı sayılar (floating-point numbers) ve IEEE 754 standardından bahsedeceğim.</p>
+
+<p>Elimden geldiğince bildiklerimi anlatmaya çalıştım. Hatalı gördüğünüz, ekleme yapmak istediğiniz, uyarı veya öneri yapmak istediğiniz bir nokta varsa lütfen bana ulaşın.</p>
+
+      </article>
+      &nbsp;<div class="blog-tags">
+          Tags:<a href="/tags#IEEE 754">IEEE 754</a><a href="/tags#floating-point">floating-point</a></div><!-- Check if any share-links are active --><section id = "social-share-section">
+  <span class="sr-only">Share: </span><!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Bilgisayar+Say%C4%B1lar%C4%B1+Nas%C4%B1l+Anlar%3F-1+http://localhost:4000/2019-01-04-Bilgisayar-say%C4%B1lar%C4%B1-nas%C4%B1l-anlar/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a></section><ul class="pager blog-pager"></ul><div class="disqus-comments"><div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'ahmetelgun-com';
+        /* ensure that pages with query string get the same discussion */
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div></div></div>
+  </div>
+</div>
+<footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:ahmetelgn@gmail.com" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://github.com/ahmetelgun" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://twitter.com/ahmetelgnn" title="Twitter"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Twitter</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Ahmet Elgün
+      &nbsp;&bull;&nbsp;
+      2019
+
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://localhost:4000">ahmetelgun.com</a>
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- doing something a bit funky here because I want to be careful not to include JQuery twice! --><script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script><!-- doing something a bit funky here because I want to be careful not to include JQuery twice! --><script src="/js/bootstrap.min.js"></script><!-- doing something a bit funky here because I want to be careful not to include JQuery twice! --><script src="/js/main.js"></script></body>
+</html>
