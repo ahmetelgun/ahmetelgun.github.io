@@ -38,7 +38,7 @@ Tarayıcıda bir cookie oluşturmak için iki temel yöntem var: Set-Cookie head
 
 Aşağıda cookieleri gösteren, Firefox tarayıcısından alınmış bir ekran görüntüsü var. Bu ekran görüntüsünde bir cookienin birden fazla özelliği olduğunu görmek mümkün. Bu ekran görüntüsü üzerinden sırayla bu özellikleri inceleyelim.
 
-![](img/cookie.png)
+![](/img/cookie.png)
 
 ### Name ve Value
 
