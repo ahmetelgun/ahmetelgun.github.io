@@ -4,7 +4,7 @@ title: Cookie nedir?
 comments: true
 tags: [http, cookie]
 ---
-# HTTP Cookie nedir?
+# Cookie nedir?
 
 Bu yazıda hemen hemen her internet sitesinde karşımıza çıkan cookieleri inceleyeceğiz. Önce kısaca tarihinden bahsedip arkasından hiç bilmeyenler için ne olduğunu anlatacağız. Arkasından geliştiriciler ve meraklılar için biraz daha derine inip teknik kısımlarını inceleyeceğiz. Şimdiden keyifli okumalar dilerim.
 
