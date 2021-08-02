@@ -24,6 +24,7 @@ description: Ahmet Elgün'ün kişisel Blog'u
 # List of links in the navigation bar
 navbar-links:
   Hakkımda: "aboutme"
+  Projelerim: "projects"
   #Resources:
   #  - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
   #  - Learn markdown: "http://www.markdowntutorial.com/"
